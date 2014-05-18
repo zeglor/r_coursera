@@ -4,12 +4,12 @@
 ## Loading and preprocessing the data
 steps_data_raw <- read.csv("activity.csv")
 steps_data_raw$date <- as.Date(steps_data_raw$date)
+class(steps_data_raw$date)
+
+aggregate(steps~date, steps_data_raw, median)
+
 
 ## What is mean total number of steps taken per day?
-hist(aggregate(steps~date, steps_data_raw, sum)$steps)
-
-steps_mean <- aggregate(steps~date, steps_data_raw, mean)
-steps_median <- aggregate(steps~date, steps_data_raw, median)
 
 
 
