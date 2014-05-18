@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Introduction
 
 It is now possible to collect a large amount of data about personal
@@ -166,3 +167,9 @@ https://github.com/rdpeng/RepData_PeerAssessment1
 
 7c376cc5447f11537f8740af8e07d6facc3d9645
 ```
+=======
+r_coursera
+==========
+
+r stuff for coursera
+>>>>>>> 53b2777fa824c090abf9ebbe5ed7892a2cf3a74f
