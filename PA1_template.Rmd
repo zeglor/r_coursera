@@ -2,19 +2,30 @@
 
 
 ## Loading and preprocessing the data
-steps_data_raw <- read.csv("activity.csv")
+```{r}
+steps_data_raw <- read.csv("activity.csv")  
 steps_data_raw$date <- as.Date(steps_data_raw$date)
+steps_data_daily <- aggregate(steps~date, steps_data_raw, sum)
+steps_data_interval <- aggregate(steps~interval, steps_data_raw, mean)
+```
 
 ## What is mean total number of steps taken per day?
-hist(aggregate(steps~date, steps_data_raw, sum)$steps)
+```{r fig.width=8, fig.height=8, message=FALSE}
+hist(aggregate(steps~date, steps_data_raw, sum)$steps, col="green")
+```
 
-steps_mean <- aggregate(steps~date, steps_data_raw, mean)
-steps_median <- aggregate(steps~date, steps_data_raw, median)
+```{r}
+steps_mean <- mean(steps_data_daily$steps)
+steps_median <- median(steps_data_daily$steps)
+```
 
-
+The average of steps taken each day is *`r steps_mean`*  
+The median of steps taken each day is *`r steps_median`*
 
 ## What is the average daily activity pattern?
-
+```{r}
+plot(x=steps_data_interval$interval, y=steps_data_interval$steps, type="l")
+```
 
 
 ## Imputing missing values
